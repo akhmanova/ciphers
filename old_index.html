@@ -1,0 +1,39 @@
+<!Doctype HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="style/style.css"/> 
+  <title>Scrambler</title>
+</head> 
+<body>
+<div id="body">
+	<div id="h1">		<!-- Header block -->
+		<h1 class="h1">Scrambler cipher</h1>		
+	</div>
+	<div id="keyForm"> 		<!-- Key + form block-->
+		<label for="keyText">
+			<a title="Keyword">			
+				<img src="img/key.png" width="50" >
+			</a>
+		</label>
+		<br></br>
+		<input type="text" id="keyText">
+	</div>
+	<div id="textForm">			<!-- Input block + Buttons -->
+		<label for="Text">
+			<p>Text</p>
+		</label>
+		<textarea name="Text" id="Text"></textarea>
+		<br></br>
+		<input type="button" id="Encription" value="Encription"> <input type="button" id="Description" value="Description">
+	</div>
+	<div id="resultForm">		<!-- Result block -->
+		<label for="result">
+			<p>Result</p>
+		</label>
+		<textarea name="result" readonly></textarea>
+	</div>
+</div>
+</body>
+</html>
+

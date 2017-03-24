@@ -1,0 +1,34 @@
+﻿body{					/*Фон*/
+	background-color:#E3E3E1;
+	color:#4B4D4C
+}
+#body{					/* обертка всего блока */
+	width:500px;
+	margin: auto;
+	padding:10px;					
+	border-left:2px solid #4B4D4C;
+	border-right:2px solid #4B4D4C;
+	background-color:#E3E3E1;
+	border-bottom:2px solid #4B4D4C;
+}
+.h1{					/* Заголовок */
+	width:300px;
+	text-align:center;
+	border:2px solid #4B4D4C;
+	margin:0 auto 10px auto;
+	color:#4B4D4C;
+	border-radius:30px 30px 30px 30px;
+}
+a,p,#Encription,#Description{ /* Курсор для нажимаемых лейблов и кнопок*/
+	cursor:pointer;
+}
+textarea{					/* Поля для Текст и Результат */
+	resize:none;
+	padding:0;
+	margin:0;
+	width:250px;
+	height:150px;
+}
+#Encription,#Description{ /* Визуалка кнопок */
+padding:5px 27px 5px 27px;	color:#4B4D4C
+}

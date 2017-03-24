@@ -1,0 +1,95 @@
+<!Doctype HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style/style.css"/> 
+	<title>Scrambler</title>
+</head> 
+<body>
+<div id="body">
+	<div id="h1">		<!-- блок заголовка -->
+		<h1 class="h1">Scrambler cipher</h1>		
+	</div>
+	<div id="keyForm"> 		<!-- блок ключик+форма -->
+		<label for="keyText">
+			<a title="Keyword">			
+				<img src="img/key.png" width="50" >
+			</a>
+		</label>
+		<br>
+		<input type="text" id="keyText">
+	</div>
+	<div id="textForm">			<!-- блок ввода+2кнопки -->
+		<label for="Text">
+			<p>Text</p>
+		</label>
+		<select id="selAbc">
+			<option value="rus" default>Русский алфавит</option>
+			<option value="eng">English alphabeth</option>
+		</select>
+		<br>
+		<textarea name="Text" id="textIn"></textarea>
+		<br>
+		<input type="button" id="Encription" value="Encription" onclick="encrypt()"> 
+		<input type="button" id="Description" value="Description" onclick="decrypt()">
+	</div>
+	<div id="resultForm">		<!-- блок результата -->
+		<label for="result">
+			<p>Result</p>
+		</label>
+		<textarea id="result" readonly></textarea>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+
+var alphaBase = {
+	'rus': ' 0123456789абвгдеёжзийклмнопрстуфхцчшщьыъэюя',
+	'eng': ' 0123456789abcdefghijklmnopqrstuvwxyz'
+}
+
+function printResult(res){
+	document.getElementById('result').value = res
+}
+
+function getKey(){
+	var keyStr = document.getElementById('keyText').value;
+	var sum = 0;
+	for (var i = 0; i < keyStr.length; i++) {
+		sum += keyStr.charCodeAt(i);
+	}
+	return sum;
+}
+
+function encrypt(){
+	var textIn = document.getElementById('textIn').value;
+	var res = '';
+	var sel = document.getElementById('selAbc');
+	var alpha = alphaBase[sel.options[sel.selectedIndex].value];
+	var n = getKey();
+	for (var i = 0; i < textIn.length; i++) {
+		c = textIn[i];
+		res += alpha[(alpha.indexOf(c) + n) % alpha.length];
+	}
+	printResult(res);
+}
+
+function decrypt(){
+	var textIn = document.getElementById('textIn').value;
+	var res = '';
+	var sel = document.getElementById('selAbc');
+	var alpha = alphaBase[sel.options[sel.selectedIndex].value];
+	var n = getKey();
+	for (var i = 0; i < textIn.length; i++) {
+		c = textIn[i];
+		var index = (alpha.indexOf(c) - n) % alpha.length;
+		if(index < 0){
+			index += alpha.length 
+		}
+		res += alpha[index];
+	}
+	printResult(res);
+}
+</script>
+</html>
+
